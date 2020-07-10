@@ -1,3 +1,10 @@
+// npm init -y
+// npm install electron --save-dev
+//create main.js
+// go to package.json =>
+// "main": main.js
+// scripts "start":"electron ."
+// const => create a constant variable
 const electron = require("electron");
 const app = electron.app;
 
@@ -45,3 +52,4 @@ app.on('activate', () => {
 })
   // In this file you can include the rest of your app's specific main process
   // code. You can also put them in separate files and require them here.
+
