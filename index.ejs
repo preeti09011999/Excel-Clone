@@ -4,103 +4,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%=title%>
-    </title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <title><%=title%></title>
     <link rel="stylesheet" href="style.css">
 </head>
-<!-- .menu+.menu-options+(.formula-bar>(input[type="text"]*2))+.cell-container+.sheets -->
+
 
 <body>
-
-
-    <div class="menu">
-        <div class="menu-items ib" id="File">File</div>
-        <div class="menu-items ib" id="Home">Home</div>
-    </div>
-    <div class="menu-options">
-        <div id="File-options" class="menu-options-item">
-            <div id="New" class="ib">New</div>
-            <div id="Open" class="ib">Open</div>
-            <div id="Save" class="ib"> Save</div>
-            <!-- <input type="file" name="" id="File-saver"> -->
-        </div>
-        <div id="Home-options" class="menu-options-item">
-            <div class="menu-group">
-                <div class="menu-row">
-                    <select name="" id="font-family">
-                        <option value="Arial">Arial</option>
-                        <option value="Cambria">Font-2</option>
-                        <option value="monospace">monospace</option>
-                        <option value="sans-Serif">sans-Serif</option>
-                        <option value="sans">sans</option>
-                    </select>
-                    <select name="" id="font-size">
-                        <option value="8">8</option>
-                        <option value="10">10</option>
-                        <option value="12">12</option>
-                        <option value="14">14</option>
-                        <option value="32">32</option>
-                    </select>
-                </div>
-                <div class="menu-row">
-                    <input type="button" value="B" id="bold">
-                    <input type="button" value="U" id="underline">
-                    <input type="button" value="I" id="italic">
-                    <input type="color" id="bg-color" value="white">
-                    <input type="color" id="text-color" value="black">
-                </div>
-            </div>
-            <div class="menu-group">
-                <div class="menu-row">
-                    <input type="button" value="L" id="left">
-                    <input type="button" value="C" id="center">
-                    <input type="button" value="R" id="right">
-                </div>
-            </div>
+    <div id="top-nav">
+        <div id="menu-container" class="menu-container">
+            <div id="new">New</div>
+            <div id="open">Open</div>
+            <div id="save">Save</div>
+            <div id="File" class="menu">Help</div>  
         </div>
     </div>
 
-    <div class="formula-bar">
-        Formula Bar
-        <input type="text" id="address-container">
-        <input type="text" id="formula-container"></div>
-    <div class="cell-container" id="grid-container">
-        <div id="top-left-cell" class="top-left-cell">
+    <div id="menu-option-container" class="menu-option-container">
+        <div  class="menu-options-home">
+            <select id="font-family">
+                <option value="arial">Arial</option>
+                <option value="sans-serif">Sans-Serif</option>
+                <option value="monospace">Monospace</option>
+                <option value="serif">Serif</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="georgia">Georgia</option>
+                <option value="Lucida">Lucida</option>
+                <option value="Roboto">Helvetica</option>
+                <option value="courier">Courier</option>
+                <option value="perpetua">Perpetua</option>
+                
+            </select>
+            <select id="font-size">
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+                <option value="22">22</option>
+                <option value="28">28</option>
+                <option value="32">32</option>
+                <option value="36">36</option>
+                <option value="40">40</option>
+                <option value="44">44</option>
+                <option value="48">48</option>
+                <option value="54">54</option>
+                <option value="60">60</option>
+                <option value="66">66</option>
+                <option value="72">72</option>
+                <option value="80">80</option>
+                <option value="88">88</option>
+                <option value="96">96</option>
+            </select>
+            <div class="vertical-line"></div>
+            <div class="style-row">
+                <button id="bold" class="style-row-font">
+                    <i class="fa fa-bold"></i>
+                </button>
+                <button id="italic" class="style-row-font">
+                    <i class="fa fa-italic"></i>
+                </button>
+                <button id="underline" class="style-row-font">
+                    <i class="fa fa-underline"></i>
+                </button>
+            </div>
+            <div class="vertical-line"></div>
+            <div class="style-row">
+                <input type="color" id="b-color" class ="cell-color" >
+                <input type="color" id="font-color">
+            </div>
+            <div class="vertical-line"></div>
+            <div id="align-col">
+                <button id="left"class="style-row-font" >
+                    <i class="fa fa-align-left"></i>
+                </button>
+                <button id="center" class="style-row-font">
+                    <i class="fa fa-align-center"></i>
+                </button>
+                <button id="right" class="style-row-font">
+                    <i class="fa fa-align-right"></i>
+                </button>
+            </div>
+            
         </div>
-
-
-
-
-        <div class="top-row" id=top-row>
-            <%for(let j=0;j<cols;j++){%>
+    </div>
+    <div id="formula-container" class="formula-container">
+        <input type="text" id="address-input" value="A1">
+        <img src="sigma.png" id="function-symbol">
+        <i class='fas fa-equals' id="function-equal"></i>
+        <input type="text" id="formula-input">
+    </div>
+    <div id="cell-container" class="cell-container">
+        <div id="tl-cell" class="tl-cell"></div>
+        <div id="top-row" class="top-row">
+            <%for(let i=0;i<cols;i++){%>
             <div class="cell">
-                <%=String.fromCharCode(j+65)%>
+                <%=String.fromCharCode(i+65)%>
             </div>
             <%}%>
-            </div>
-            <div id="left-col" class="left-col">
-                <%for(let i=1;i<=rows;i++){%>
+        </div>
+        <div id="left-col" class="left-col">
+            <%for(let j=0;j<rows;j++){%>
             <div class="cell">
-                <%=i%>
+                <%=j+1%>
             </div>
             <%}%>
-            </div>
-
-
-            <div class="grid" id="grid">
+        </div>
+        <div id="grid" class="grid">
             <%for(let i=0;i<rows;i++){%>
             <div class="row">
                 <%for(let j=0;j<cols;j++){%>
-                <div class="cell" contenteditable="true" ri=<%=i%> ci=<%=j%>>
-                </div>
-                <%}%> </div>
-                    <%}%>
+                <div class="cell" contenteditable="true" rid=<%=i%> cid=<%=j%>></div>
+                <%}%>
+        </div>
+        <%}%>
             </div>
         </div>
-        <div class="sheets">
-        </div>
-        <script src="index.js"></script>
+        <div id="sheets" class="sheets">Sheets</div>
+        <script src="script.js"></script>
 </body>
 
 </html>
