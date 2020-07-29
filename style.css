@@ -1,133 +1,179 @@
-html,body{
-    margin: 0px;
-    padding: 0px;
-    color:#777;
-    font-family: sans-serif;
-   font-size: 1rem;
+/* presets */
+body,html{
+    margin:0px;
+    padding:0px;
 }
-/* ?? */
 *{
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
-.ib{
-    display: inline-block;
+button{
+    padding: 2px;
 }
-
-/* Menu */
-.menu{
-    height: 22px;
-    border: 1px solid red;
+.menu-container{
+    height: 20px;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: space-evenly;
+    width:200px;
+}
+.menu-option-container{
+    height: 30px;
+    display: flex;
+    background-color: #ebebeb;
 }
 .menu-options{
-    height: 61px;
-    border: 1px solid green;
-}
-
-/* New changes */
-.menu-items{
-    width: 45px;
-    font-size: 90%;
-    text-align: center;
-}
-.menu-options-item{
-    display: none;
-    height: 100%;
-    margin-left:19px;
-}
-.menu-group{
-    width: 208px;
-    display: flex;
-    flex-direction: column;
+    /* width: 332px; */
+    /* height: 100px; */
+    justify-content: space-around;
     height: 100%;
     justify-content: space-evenly;
-    border-right: 1px solid lightgray;
-    border-radius: 1px;
+    align-items: center;
+    display: none;   
+    
 }
-.menu-options-item.selected{
+.menu-options-home{
     display: flex;
 }
-#File-options>div{
-    width:50px;
-    text-align: center;
-}
 
-
-/* Formula */
-.formula-bar{
-    height: 26px;
-    border: 1px solid yellow;
+.style-row button.active{
+    background-color: grey;
 }
-/* Cell Conatiner area */
+.style-row{
+    margin-left: 30px;
+    margin-bottom: 13px;
+    padding: 5px;
+}
+.formula-container{
+    height: 50px;
+    background-color: #ebebeb;
+}
 .cell-container{
-    height: calc(100vh - 129px);  
+    height: calc(100vh - 130px);
     overflow: auto;
     position: relative;
 }
-.top-left-cell{
-    height: 25px;
+.sheets{
+    height: 20px;
+    border: 1px solid;
+}
+.row .cell,.top-row .cell{
+    border: 1px solid;
+    min-width: 80px;
+    /* width: 80px; */
+    text-align: center;
+    /* height: 25px; */
+        min-height: 25px; 
+        max-width:80px;  
+}
+.row{
+    display:flex;
+}
+.tl-cell{
+    height:25px;
     width:25px;
-    background-color: gray;
-    position: absolute;
-    top:0px;
-    left:0px;
-    z-index:3;
+    background-color: darkgrey;
+    z-index: 3;
+    position: relative;
 }
 .top-row{
     display: flex;
     position: absolute;
-    left: 26px;
-    height: 25px;
-    top:0px;
-    background-color: lightgrey;
-    text-align: center; 
-    z-index:2;
+    left: 25px;
+    top: 0px;
+    z-index: 1;
+    background-color: #ebebeb;
 }
-.top-row>.cell{
-    min-width: 87px;
-    border:1px solid ;
-}
-.left-col{
-    position: absolute;
-    top: 25px;
-    left:0px;
-    z-index:2;
-}
-.left-col>.cell{
+.left-col .cell{
+    border: 1px solid;
     width:25px;
-    height: 25px;
-background-color: lightgrey ;
-border: 1px solid;
+    height:25px;
+    text-align: center;
+    background-color: #ebebeb;
 }
-.row{
-    display: flex; 
- }
 .grid{
     position: absolute;
-    top: 25px;
-    left: 26px;
-    z-index:1;
+    top:25px;
+    left: 25px;
+    background-color: white;
 }
-.row>.cell{
-    min-width: 87px;
-    border: 1px solid teal;
-    text-align: center;
-min-height: 25px;
-}
-/* .col{
-    height: 25px;
-    border: 1px solid;
-    min-width: 49px;
-} */
-#grid .cell{
-    max-width: 50px
 
+.left-col{
+    position: absolute;
+    z-index: 1;
 }
-/* *************sheets area********** */
-.sheets{
+
+#address-input{
+    margin-top: 10px;
+    box-shadow: inset 0 0 3px grey;
+    height: 30px;
+    border-radius: 5px;
+    width: 30%;
+    float: left;
+    margin-left: 10px;
+}
+#formula-input{
+    margin-top: 10px;
+    box-shadow: inset 0 0 3px grey;
+    height: 30px;
+    border-radius: 5px;
+    width: 60%;
+    float: right;
+    margin-right: 10px;
+}
+#function-symbol{
     height: 20px;
-    border: 1px solid darkslategrey;
-
+    width: 20px;
+    margin-top: 15px;
+    margin-left: 45px;
 }
-input[type="button"].selected{
-background-color: lightslategrey;
+#function-equal{
+    font-size: 15px;
+    margin-left: 15px;
+}
+#font-family{
+    margin-left: 10px;
+    margin-top: 4px;
+    padding: 4px;
+    border-radius: 5px;
+    height: 30px;
+    background-color: white;
+    box-shadow: inset 0 0 3px grey;
+}
+#font-size{
+    margin-left: 10px;
+    margin-top: 4px;
+    padding: 4px;
+    border-radius: 5px;
+    height: 30px;
+    background-color: white;
+    box-shadow: inset 0 0 3px grey;
+}
+.cell-color{
+    margin-left: 10px;
+}
+.style-row{
+    margin-left: 10px;
+    padding: 5px;
+}
+.vertical-line{
+    border-left: 2px solid gray;
+    height: 25px;
+    left: 50%;
+    margin-left: 20px;
+    margin-top: 7px;
+}
+#align-col{
+    margin-left: 10px;
+    margin-top: 4px;
+}
+.style-row-font{
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: inset 0 0 3px grey;
+    padding: 4px;
+    margin-left: 10px;
+}
+
+#top-nav{
+    background-color: darkcyan;
 }
